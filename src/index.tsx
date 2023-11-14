@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom/client'
-import { StyleSheetManager } from 'styled-components'
 import isPropValid from '@emotion/is-prop-valid'
+import { StyleSheetManager } from 'styled-components'
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import reportWebVitals from 'reportWebVitals'
 
 import { client } from 'graphql/services/apollo'
@@ -11,6 +12,7 @@ import { theme, GlobalStyle } from 'theme'
 import { ThemeProvider } from 'styled-components'
 
 import News from 'pages/news/News'
+import Article from 'pages/article/[slug]'
 import { Header } from 'components/ui/Header'
 
 const rootElement = document.getElementById('root') as HTMLElement
@@ -21,7 +23,12 @@ ReactDOM.createRoot(rootElement).render(
       <ApolloProvider client={client}>
         <GlobalStyle />
         <Header />
-        <News />
+        <BrowserRouter>
+          <Routes>
+            <Route path={'/'} element={<News />} />
+            <Route path={'/:article'} element={<Article />} />
+          </Routes>
+        </BrowserRouter>
       </ApolloProvider>
     </ThemeProvider>
   </StyleSheetManager>

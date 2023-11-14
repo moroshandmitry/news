@@ -1,7 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import { decodeText, isEmpty } from 'lib/helpers'
 import { LOGO_URL, THUMBNAIL_URL } from 'lib/constants'
+import { decodeText, isEmpty, truncateTextDesc } from 'lib/helpers'
 
 import { Card, Spacer, Image, EmptyLogo } from 'components/general'
 
@@ -12,16 +13,17 @@ interface NewsItemProps {
 }
 
 const NewsItem: React.FC<NewsItemProps> = ({ item }) => {
-  const { title, description, dates, thumbnail, parents } = item
+  const { title, description, dates, thumbnail, parents, url } = item
   const isPathEmpty = isEmpty(parents[1]?.attachment)
   const logoSrc = LOGO_URL + parents[1]?.attachment
+  const navigate = useNavigate()
 
   return (
-    <Card>
+    <Card onClick={() => navigate(url)}>
       <Image style={{ borderRadius: '4px' }} src={`${THUMBNAIL_URL}${thumbnail}`} alt={decodeText(title.short)} width={240} />
       <Spacer ml={16} justifyContent="space-between">
         <Card.Title title={title.long} />
-        <Card.Desc desc={description.intro} />
+        <Card.Desc desc={truncateTextDesc(description.intro)} />
         <Spacer flexDirection="row">
           <RenderLogo isPathEmpty={isPathEmpty} src={logoSrc} />
           <Card.Time time={dates.posted} />

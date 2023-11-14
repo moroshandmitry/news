@@ -1,8 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-import { truncateTextDesc } from 'lib/helpers'
-
 interface ICardDescProps extends React.PropsWithChildren {
   desc?: string
   additionalStyles?: string
@@ -35,7 +33,7 @@ const CardDesc: React.FC<ICardDescProps> = (props) => {
   const { desc, children, additionalStyles } = props
 
   if (desc) {
-    return <StyledCardDesc additionalStyles={additionalStyles}>{truncateTextDesc(desc)}</StyledCardDesc>
+    return <StyledCardDesc additionalStyles={additionalStyles}>{desc}</StyledCardDesc>
   }
 
   return <StyledDiv>{children}</StyledDiv>
