@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { LOGO_URL, THUMBNAIL_URL } from 'lib/constants'
+import { LOGO_URL, ARTICLES_URL } from 'lib/constants'
 import { decodeText, isEmpty, truncateTextDesc } from 'lib/helpers'
 
 import { Card, Spacer, Image, EmptyLogo } from 'components/general'
@@ -20,7 +20,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ item }) => {
 
   return (
     <Card onClick={() => navigate(url)}>
-      <Image style={{ borderRadius: '4px' }} src={`${THUMBNAIL_URL}${thumbnail}`} alt={decodeText(title.short)} width={240} />
+      <Image style={{ borderRadius: '4px' }} src={`${ARTICLES_URL}${thumbnail}`} alt={decodeText(title.short)} width={240} />
       <Spacer ml={16} justifyContent="space-between">
         <Card.Title title={title.long} />
         <Card.Desc desc={truncateTextDesc(description.intro)} />
