@@ -9,16 +9,15 @@ const StyledNews = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
-  color: ${(props) => props.theme.textColor};
-  background: ${(props) => props.theme.bgContent};
+  background: ${({ theme }) => theme.colors.secondary};
 `
 
 const StyledTitle = styled.span`
   font-size: 28px;
   font-weight: 700;
   text-align: left;
-  color: rgb(15, 23, 42);
   margin: 0px 0px 24px 0px;
+  color: ${({ theme }) => theme.colors.deepPlum};
 `
 
 const News: React.FC = () => {

@@ -9,7 +9,7 @@ export const StyledHeader = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 0px 0px 24px 0px;
-  color: rgb(128, 128, 128);
+  color: ${({ theme }) => theme.colors.primary};
 `
 
 const Header: React.FC = () => {

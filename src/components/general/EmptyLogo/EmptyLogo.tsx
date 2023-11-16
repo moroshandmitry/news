@@ -14,8 +14,8 @@ const StyledEmptyLogo = styled.span`
   justify-content: center;
   -webkit-box-pack: center;
   -webkit-box-align: center;
-  color: rgb(255, 255, 255);
-  background-color: rgb(128, 128, 128);
+  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.mediumGray};
 
   &::after {
     top: 50%;
@@ -26,7 +26,7 @@ const StyledEmptyLogo = styled.span`
     position: absolute;
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgb(255, 255, 255);
+    background: ${({ theme }) => theme.colors.white};
   }
 `
 

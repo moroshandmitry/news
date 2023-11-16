@@ -15,7 +15,7 @@ const commonStyles = css`
   position: relative;
   letter-spacing: 0px;
   margin: -2.5px 0px 8px;
-  color: rgb(15, 23, 42);
+  color: ${({ theme }) => theme.colors.deepPlum};
 `
 
 const StyledCardTitle = styled.h3<ICardTitleProps>`

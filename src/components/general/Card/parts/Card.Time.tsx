@@ -11,7 +11,7 @@ interface ICardTimeProps extends React.PropsWithChildren {
 const commonStyles = css`
   font-size: 14px;
   width: max-content;
-  color: rgb(128, 128, 128);
+  color: ${({ theme }) => theme.colors.tertiary};
 `
 
 const StyledCardTime = styled.time<ICardTimeProps>`

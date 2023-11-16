@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
     max-width: 936px;
     overflow-x: hidden;
-    background: ${(props) => props.theme.bg};
+    background: ${({ theme }) => theme.colors.quaternary};
   }
 `
 

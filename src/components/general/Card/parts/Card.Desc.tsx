@@ -11,7 +11,7 @@ const commonStyles = css`
   font-weight: 400;
   line-height: 20px;
   margin: 0px 0px 10px;
-  color: rgb(15, 23, 42);
+  color: ${({ theme }) => theme.colors.deepPlum};
 `
 
 const mediaQueryStyles = css`
