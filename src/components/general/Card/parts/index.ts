@@ -1,3 +1,3 @@
-export { default as CardDesc } from './Card.Desc'
-export { default as CardTime } from './Card.Time'
-export { default as CardTitle } from './Card.Title'
+export { default as CardDesc } from './CardDesc/Card.Desc'
+export { default as CardTime } from './CardTime/Card.Time'
+export { default as CardTitle } from './CardTitle/Card.Title'
