@@ -1,4 +1,6 @@
+import { css } from 'styled-components'
+
 export interface ICardDescProps extends React.PropsWithChildren {
   desc?: string
-  additionalStyles?: string
+  additionalStyles?: ReturnType<typeof css>
 }

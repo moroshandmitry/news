@@ -1,10 +1,6 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
 
-interface ICardTimeProps extends React.PropsWithChildren {
-  time?: string
-  additionalStyles?: ReturnType<typeof css>
-}
+import type { ICardTitleProps } from './Card.Title.types'
 
 const commonStyles = css`
   font-size: 14px;
@@ -12,7 +8,7 @@ const commonStyles = css`
   color: ${({ theme }) => theme.colors.tertiary};
 `
 
-export const StyledCardTitle = styled.time<ICardTimeProps>`
+export const StyledCardTitle = styled.time<ICardTitleProps>`
   ${commonStyles}
   ${({ additionalStyles }) => additionalStyles && additionalStyles}
 `
