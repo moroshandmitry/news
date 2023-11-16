@@ -7,9 +7,7 @@ import type { ISpacerProps } from './Spacer.types'
 const Spacer: React.FC<React.PropsWithChildren<ISpacerProps>> = (props) => {
   const { children, ...spacerProps } = props
 
-  const renderChildren = React.Children.toArray(children) as React.ReactElement[]
-
-  return <StyledSpacer {...spacerProps}>{renderChildren}</StyledSpacer>
+  return <StyledSpacer {...spacerProps}>{children}</StyledSpacer>
 }
 
 export default Spacer

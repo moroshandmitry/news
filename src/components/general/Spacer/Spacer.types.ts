@@ -1,9 +1,6 @@
 import type { CSSProperties } from 'styled-components'
 
-type FlexProperties = Pick<
-  CSSProperties,
-  'display' | 'flexDirection' | 'justifyContent' | 'alignItems' | 'flexWrap' | 'alignSelf' | 'flex' | 'order' | 'alignContent'
->
+type FlexProperties = Pick<CSSProperties, 'flexDirection' | 'justifyContent' | 'alignItems' | 'flexWrap' | 'alignSelf' | 'alignContent'>
 
 export interface ISpacerProps extends FlexProperties {
   margin?: number

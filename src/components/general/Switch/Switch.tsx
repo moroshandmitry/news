@@ -11,14 +11,25 @@ const switchLabelPosition = css`
   position: fixed;
 `
 
-const SwitchLabel = styled.label`
+const SwitchLabel = styled.label.attrs((props) => {
+  return {
+    htmlFor: props.htmlFor || 'switch',
+    ...props,
+  }
+})`
   width: 60px;
   height: 34px;
   display: inline-block;
   ${switchLabelPosition}
 `
 
-const SwitchInput = styled.input`
+const SwitchInput = styled.input.attrs((props) => {
+  return {
+    id: props.id || 'switch',
+    name: props.name || 'switch',
+    ...props,
+  }
+})`
   display: none;
 `
 
