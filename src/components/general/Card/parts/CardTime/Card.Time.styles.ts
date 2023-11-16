@@ -10,7 +10,7 @@ const commonStyles = css`
 
 export const StyledCardTime = styled.time<ICardTimeProps>`
   ${commonStyles}
-  ${({ additionalStyles }) => additionalStyles && additionalStyles}
+  ${({ styledCss }) => styledCss && styledCss}
 `
 
 export const StyledDiv = styled.div``

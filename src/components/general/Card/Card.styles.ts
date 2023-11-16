@@ -6,5 +6,5 @@ export const StyledCard = styled.article<ICardProps>`
   display: flex;
   flex-direction: row;
   margin: 0px 0px 24px;
-  ${(props) => props.additionalStyles}
+  ${({ styledCss }) => styledCss && styledCss};
 `

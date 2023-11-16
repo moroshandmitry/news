@@ -20,7 +20,7 @@ export const StyledCardDesc = styled.p<ICardDescProps>`
   display: flex;
   ${commonStyles}
   ${mediaQueryStyles}
-  ${({ additionalStyles }) => additionalStyles && additionalStyles}
+  ${({ styledCss }) => styledCss && styledCss}
 `
 
 export const StyledDiv = styled.div``

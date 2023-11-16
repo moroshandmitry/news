@@ -1,4 +1,6 @@
 import React from 'react'
+import { css } from 'styled-components'
+
 import { useNavigate } from 'react-router-dom'
 
 import { LOGO_URL, ARTICLES_URL } from 'lib/constants'
@@ -7,10 +9,15 @@ import { decodeText, isEmpty, truncateTextDesc } from 'lib/helpers'
 import { Card, Spacer, Image, EmptyLogo } from 'components/general'
 
 import type { INewsItem } from 'typings'
+import { colorOpacityMixin } from 'theme/style/mixins'
 
 interface NewsItemProps {
   item: INewsItem
 }
+
+const styledCss = css`
+  border: 1px solid ${(props) => colorOpacityMixin(props.theme.colors.linen, 0.1)};
+`
 
 const NewsItem: React.FC<NewsItemProps> = ({ item }) => {
   const { title, description, dates, thumbnail, parents, url } = item
@@ -19,7 +26,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ item }) => {
   const navigate = useNavigate()
 
   return (
-    <Card onClick={() => navigate(url)}>
+    <Card onClick={() => navigate(url)} styledCss={styledCss}>
       <Image style={{ borderRadius: '4px' }} src={`${ARTICLES_URL}${thumbnail}`} alt={decodeText(title.short)} width={240} />
       <Spacer ml={16} justifyContent="space-between">
         <Card.Title title={title.long} />

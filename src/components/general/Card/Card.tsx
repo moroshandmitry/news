@@ -7,10 +7,10 @@ import type { ICardParts, ICardProps } from './Card.types'
 import * as Parts from './parts'
 
 const Card: React.FC<ICardProps> & ICardParts = (props) => {
-  const { children, additionalStyles, ...restArticleProps } = props
+  const { children, styledCss, ...restArticleProps } = props
 
   return (
-    <StyledCard additionalStyles={additionalStyles} {...restArticleProps}>
+    <StyledCard styledCss={styledCss} {...restArticleProps}>
       {children}
     </StyledCard>
   )
