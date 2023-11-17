@@ -4,9 +4,9 @@ import { useQuery } from '@apollo/client'
 
 import { GET_ARTICLES } from 'graphql/queries/getArticles'
 
-import type { IArticlesItemResponse } from 'typings'
+import { ARTICLES_PER_PAGE } from 'lib/constants'
 
-const PAGE_SIZE = 10
+import type { IArticlesItemResponse } from 'typings'
 
 const useLoadInfinityScrollArticles = () => {
   const [page, setPage] = React.useState(1)
@@ -14,7 +14,7 @@ const useLoadInfinityScrollArticles = () => {
   const [loading, setLoading] = React.useState(false)
   const [allArticles, setAllArticles] = React.useState<IArticlesItemResponse[]>([])
   const { data, fetchMore, networkStatus } = useQuery(GET_ARTICLES, {
-    variables: { skip: PAGE_SIZE * (page - 1), take: PAGE_SIZE },
+    variables: { skip: ARTICLES_PER_PAGE * (page - 1), take: ARTICLES_PER_PAGE },
     notifyOnNetworkStatusChange: true,
     fetchPolicy: 'cache-first',
   })
@@ -29,7 +29,7 @@ const useLoadInfinityScrollArticles = () => {
 
       try {
         const { data: newData } = await fetchMore({
-          variables: { skip: PAGE_SIZE * (newPage - 1), take: PAGE_SIZE },
+          variables: { skip: ARTICLES_PER_PAGE * (newPage - 1), take: ARTICLES_PER_PAGE },
         })
 
         if (!newData.contents || newData.contents.length === 0) {
@@ -62,7 +62,7 @@ const useLoadInfinityScrollArticles = () => {
         })
         return [...prevAllArticles, ...uniqueArticles]
       })
-      setHasMore(data.contents.length === PAGE_SIZE)
+      setHasMore(data.contents.length === ARTICLES_PER_PAGE)
     }
   }, [data])
 
