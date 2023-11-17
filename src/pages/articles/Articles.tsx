@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { useLoadInfinityScrollNews } from 'lib/hooks'
+import { useLoadInfinityScrollArticles } from 'lib/hooks'
 
-import { NewsList } from './parts'
+import { ArticlesList } from './parts'
 
-const StyledNews = styled.div`
+const StyledArticles = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -20,15 +20,15 @@ const StyledTitle = styled.span`
   color: ${({ theme }) => theme.colors.deepPlum};
 `
 
-const News: React.FC = () => {
-  const { newsList = [] } = useLoadInfinityScrollNews()
+const Articles: React.FC = () => {
+  const { articlesList = [] } = useLoadInfinityScrollArticles()
 
   return (
-    <StyledNews>
+    <StyledArticles>
       <StyledTitle>Сегодня:</StyledTitle>
-      {newsList && <NewsList newsList={newsList} />}
-    </StyledNews>
+      {articlesList && <ArticlesList articlesList={articlesList} />}
+    </StyledArticles>
   )
 }
 
-export default News
+export default Articles

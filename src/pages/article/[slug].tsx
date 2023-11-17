@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { isEmpty } from 'lib/helpers'
-import { ARTICLE_URL } from 'lib/constants'
-
 import { useArticle } from 'lib/hooks'
 import { useLocation } from 'react-router-dom'
+
+import { ARTICLE_URL } from 'lib/constants'
 
 import { Card, Loader, Spacer, Image } from 'components/general'
 
@@ -18,6 +18,10 @@ const StyledDesc = styled.div`
 
   & p {
     margin-bottom: 15px;
+  }
+
+  & img {
+    max-width: 936px;
   }
 `
 
@@ -54,7 +58,7 @@ const Article: React.FC = () => {
         <StyledTitle children={data.title.long} />
         <StyledTitleShort children={data.description.intro} />
 
-        <Image src={ARTICLE_URL + data.thumbnail} style={{ maxHeight: '418px', objectFit: 'cover', borderRadius: '8px' }} />
+        <Image src={ARTICLE_URL + data.thumbnail} style={{ maxHeight: '418px', borderRadius: '8px' }} />
 
         <StyledDesc dangerouslySetInnerHTML={{ __html: data.description.long }} />
         <Spacer flexDirection="row">

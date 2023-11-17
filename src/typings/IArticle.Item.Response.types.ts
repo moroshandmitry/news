@@ -1,4 +1,4 @@
-export interface NewsArticle {
+export interface IArticleItemResponse {
   url: string
   title: {
     long: string

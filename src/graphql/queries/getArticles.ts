@@ -1,16 +1,17 @@
 import { gql } from '@apollo/client'
 
-export const GET_ARTICLE = gql`
-  query GetArticle($fullUrl: String!) {
-    content(id: "", project_id: "5107de83-f208-4ca4-87ed-9b69d58d16e1", full_url: $fullUrl) {
+export const GET_ARTICLES = gql`
+  query GetArticles($skip: Int, $take: Int) {
+    contents(project_id: "5107de83-f208-4ca4-87ed-9b69d58d16e1", lang: "ru", skip: $skip, take: $take) {
+      id
       url
-      title {
-        short
-        long
-      }
       thumbnail
       dates {
         posted
+      }
+      title {
+        long
+        short
       }
       parents {
         id
@@ -18,7 +19,6 @@ export const GET_ARTICLE = gql`
       }
       description {
         intro
-        long
       }
     }
   }

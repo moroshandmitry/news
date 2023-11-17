@@ -2,18 +2,18 @@ import React from 'react'
 
 import { useQuery } from '@apollo/client'
 
-import { GET_NEWS } from 'graphql/queries/getNews'
+import { GET_ARTICLES } from 'graphql/queries/getArticles'
 
-import type { INewsItem } from 'typings'
+import type { IArticlesItemResponse } from 'typings'
 
 const PAGE_SIZE = 10
 
-const useLoadInfinityScrollNews = () => {
+const useLoadInfinityScrollArticles = () => {
   const [page, setPage] = React.useState(1)
   const [hasMore, setHasMore] = React.useState(true)
   const [loading, setLoading] = React.useState(false)
-  const [allNews, setAllNews] = React.useState<INewsItem[]>([])
-  const { data, fetchMore, networkStatus } = useQuery(GET_NEWS, {
+  const [allArticles, setAllArticles] = React.useState<IArticlesItemResponse[]>([])
+  const { data, fetchMore, networkStatus } = useQuery(GET_ARTICLES, {
     variables: { skip: PAGE_SIZE * (page - 1), take: PAGE_SIZE },
     notifyOnNetworkStatusChange: true,
   })
@@ -34,12 +34,12 @@ const useLoadInfinityScrollNews = () => {
         if (!newData.contents || newData.contents.length === 0) {
           setHasMore(false)
         } else {
-          setAllNews((prevAllNews) => {
-            const uniqueNews = newData.contents.filter((newItem) => {
-              return !prevAllNews.some((item) => item.id === newItem.id)
+          setAllArticles((prevAllArticles) => {
+            const uniqueArticles = newData.contents.filter((newItem) => {
+              return !prevAllArticles.some((item) => item.id === newItem.id)
             })
 
-            return [...prevAllNews, ...uniqueNews]
+            return [...prevAllArticles, ...uniqueArticles]
           })
 
           setPage(newPage)
@@ -55,11 +55,11 @@ const useLoadInfinityScrollNews = () => {
 
   React.useEffect(() => {
     if (data && data.contents) {
-      setAllNews((prevAllNews) => {
-        const uniqueNews = data.contents.filter((newItem) => {
-          return !prevAllNews.some((item) => item.id === newItem.id)
+      setAllArticles((prevAllArticles) => {
+        const uniqueArticles = data.contents.filter((newItem) => {
+          return !prevAllArticles.some((item) => item.id === newItem.id)
         })
-        return [...prevAllNews, ...uniqueNews]
+        return [...prevAllArticles, ...uniqueArticles]
       })
       setHasMore(data.contents.length === PAGE_SIZE)
     }
@@ -87,7 +87,7 @@ const useLoadInfinityScrollNews = () => {
     }
   }, [loading, hasMore, fetchMoreData, page])
 
-  return { newsList: allNews, loading, hasMore, setPage }
+  return { articlesList: allArticles, loading, hasMore, setPage }
 }
 
-export default useLoadInfinityScrollNews
+export default useLoadInfinityScrollArticles

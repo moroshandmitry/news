@@ -10,8 +10,8 @@ import { StyleSheetManager, ThemeProvider } from 'styled-components'
 import { ApolloProvider } from '@apollo/client'
 import { client } from 'graphql/services/apollo'
 
-import News from 'pages/news/News'
 import Article from 'pages/article/[slug]'
+import Articles from 'pages/articles/Articles'
 import { Switch } from 'components/general'
 import { Header } from 'components/ui/Header'
 
@@ -33,7 +33,7 @@ const App: React.FC = () => {
           <Header />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<News />} />
+              <Route path="/" element={<Articles />} />
               <Route path="/:article" element={<Article />} />
             </Routes>
           </BrowserRouter>

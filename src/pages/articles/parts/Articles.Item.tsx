@@ -3,23 +3,25 @@ import { css } from 'styled-components'
 
 import { useNavigate } from 'react-router-dom'
 
-import { LOGO_URL, ARTICLES_URL } from 'lib/constants'
+import { colorOpacityMixin } from 'theme/style/mixins'
 import { decodeText, isEmpty, truncateTextDesc } from 'lib/helpers'
+
+import { LOGO_URL, ARTICLES_URL } from 'lib/constants'
 
 import { Card, Spacer, Image, EmptyLogo } from 'components/general'
 
-import type { INewsItem } from 'typings'
-import { colorOpacityMixin } from 'theme/style/mixins'
+import type { IArticlesItemResponse } from 'typings'
 
-interface NewsItemProps {
-  item: INewsItem
+interface ArticlesItemProps {
+  item: IArticlesItemResponse
 }
 
 const styledCss = css`
   border: 1px solid ${(props) => colorOpacityMixin(props.theme.colors.linen, 0.1)};
 `
 
-const NewsItem: React.FC<NewsItemProps> = ({ item }) => {
+const ArticlesItem: React.FC<ArticlesItemProps> = (props) => {
+  const { item } = props
   const { title, description, dates, thumbnail, parents, url } = item
   const isPathEmpty = isEmpty(parents[1]?.attachment)
   const logoSrc = LOGO_URL + parents[1]?.attachment
@@ -55,4 +57,4 @@ const RenderLogo: React.FC<RenderLogoProps> = (props) => {
   return <EmptyLogo />
 }
 
-export default NewsItem
+export default ArticlesItem

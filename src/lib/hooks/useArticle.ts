@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client'
 
-import { GET_ARTICLE } from 'graphql/queries/getArticles'
+import { GET_ARTICLE } from 'graphql/queries/getArticle'
 
-import type { NewsArticle } from 'typings/IArticle.type'
+import type { IArticleItemResponse } from 'typings'
 
 const useArticle = (fullUrl: string) => {
   const { loading, error, data } = useQuery(GET_ARTICLE, {
@@ -34,7 +34,7 @@ const useArticle = (fullUrl: string) => {
 
   return {
     loading,
-    data: extractedData as NewsArticle,
+    data: extractedData as IArticleItemResponse,
     error: error ? error.message : null,
   }
 }

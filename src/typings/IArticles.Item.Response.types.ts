@@ -1,4 +1,4 @@
-export interface INewsItem {
+export interface IArticlesItemResponse {
   id: string
   url: string
   thumbnail: string
@@ -9,11 +9,13 @@ export interface INewsItem {
     long: string
     short: string
   }
-  parents: Array<{
-    id: string
-    attachment: string
-  }>
+  parents: Parent[]
   description: {
     intro: string
   }
+}
+
+interface Parent {
+  id: string
+  attachment: string
 }
