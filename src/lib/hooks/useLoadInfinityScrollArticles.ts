@@ -16,6 +16,7 @@ const useLoadInfinityScrollArticles = () => {
   const { data, fetchMore, networkStatus } = useQuery(GET_ARTICLES, {
     variables: { skip: PAGE_SIZE * (page - 1), take: PAGE_SIZE },
     notifyOnNetworkStatusChange: true,
+    fetchPolicy: 'cache-first',
   })
 
   const fetchMoreData = React.useCallback(
