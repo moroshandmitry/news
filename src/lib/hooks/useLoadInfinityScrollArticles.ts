@@ -6,7 +6,7 @@ import { GET_ARTICLES } from 'graphql/queries/getArticles'
 
 import { ARTICLES_PER_PAGE } from 'lib/constants'
 
-import type { IArticlesItemResponse } from 'typings'
+import type { IArticlesItemResponse } from 'types'
 
 const useLoadInfinityScrollArticles = () => {
   const [page, setPage] = React.useState(1)

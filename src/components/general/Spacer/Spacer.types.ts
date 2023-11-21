@@ -8,6 +8,7 @@ export interface ISpacerProps extends FlexProperties {
   mr?: number
   mb?: number
   ml?: number
+
   padding?: number
   pt?: number
   pr?: number

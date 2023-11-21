@@ -1,15 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 
-import { applySpacerStyles } from '../Spacer/Spacer.styles'
+import { StyledImage } from './Image.styles'
 
-import type { ISpacerProps } from '../Spacer/Spacer.types'
-
-interface IImageProps extends React.ComponentPropsWithRef<'img'>, ISpacerProps {}
-
-const StyledImage = styled.img<ISpacerProps>`
-  ${applySpacerStyles}
-`
+import type { IImageProps } from './Image.types'
 
 const Image: React.FC<IImageProps> = (props) => {
   const { ...spacerProps } = props

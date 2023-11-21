@@ -1,15 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 
-import ArticlesItem from './Articles.Item'
+import ArticlesItem from '../ArticlesItem/Articles.Item'
+import { StyledArticlesList } from './Articles.List.styles'
 
-import type { IArticlesItemResponse } from 'typings'
-
-interface ArticlesListProps {
-  articlesList: IArticlesItemResponse[]
-}
-
-const StyledDiv = styled.div``
+import type { ArticlesListProps } from './Articles.List.types'
 
 const ArticlesList: React.FC<ArticlesListProps> = (props) => {
   const { articlesList = [] } = props
@@ -20,7 +14,7 @@ const ArticlesList: React.FC<ArticlesListProps> = (props) => {
     })
   }, [articlesList])
 
-  return <StyledDiv>{renderArticles}</StyledDiv>
+  return <StyledArticlesList>{renderArticles}</StyledArticlesList>
 }
 
 export default ArticlesList

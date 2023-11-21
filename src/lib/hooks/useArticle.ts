@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client'
 
 import { GET_ARTICLE } from 'graphql/queries/getArticle'
 
-import type { IArticleItemResponse } from 'typings'
+import type { IArticleItemResponse } from 'types'
 
 const useArticle = (fullUrl: string) => {
   const { loading, error, data } = useQuery(GET_ARTICLE, {
