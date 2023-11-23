@@ -1,12 +1,12 @@
 import React from 'react'
-
-import { isEmpty } from 'lib/helpers'
-import { useArticle } from 'lib/hooks'
 import { useLocation } from 'react-router-dom'
 
 import { ARTICLE_URL } from 'lib/constants'
+import { isEmpty } from 'lib/helpers'
+import { useArticle } from 'lib/hooks'
 
-import { Card, Loader, Spacer, Image } from 'components/general'
+import { Card, Image, Loader, Spacer } from 'components/general'
+
 import { StyledDesc, StyledTitle, StyledTitleShort } from './Article.styles'
 
 const Article: React.FC = () => {

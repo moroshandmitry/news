@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ArticlesItem from '../ArticlesItem/Articles.Item'
+
 import { StyledArticlesList } from './Articles.List.styles'
 
 import type { ArticlesListProps } from './Articles.List.types'

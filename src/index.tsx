@@ -2,16 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { GlobalStyle } from 'theme'
-import isPropValid from '@emotion/is-prop-valid'
-import useStorageTheme from 'lib/hooks/useStorageTheme'
 import { StyleSheetManager, ThemeProvider } from 'styled-components'
+import isPropValid from '@emotion/is-prop-valid'
+import { GlobalStyle } from 'theme'
 
 import { ApolloProvider } from '@apollo/client'
 import { client } from 'graphql/services/apollo'
 
+import useStorageTheme from 'lib/hooks/useStorageTheme'
+
 import Article from 'pages/article/[slug]'
 import Articles from 'pages/articles/Articles'
+
 import { Switch } from 'components/general'
 import { Header } from 'components/ui/Header'
 

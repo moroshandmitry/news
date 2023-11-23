@@ -1,5 +1,4 @@
 import { css } from 'styled-components'
-
 import { colorOpacityMixin } from 'theme/style/mixins'
 
 export const styledCardCss = css`

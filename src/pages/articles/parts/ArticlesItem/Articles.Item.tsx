@@ -1,11 +1,10 @@
 import React from 'react'
-
 import { useNavigate } from 'react-router-dom'
+
+import { ARTICLES_URL, LOGO_URL } from 'lib/constants'
 import { decodeText, isEmpty, truncateTextDesc } from 'lib/helpers'
 
-import { Card, Spacer, Image, EmptyLogo } from 'components/general'
-
-import { LOGO_URL, ARTICLES_URL } from 'lib/constants'
+import { Card, EmptyLogo, Image, Spacer } from 'components/general'
 
 import { styledCardCss } from './Articles.Item.styles'
 

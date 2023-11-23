@@ -1,10 +1,10 @@
 import React from 'react'
 
+import * as Parts from './parts'
+
 import { StyledCard } from './Card.styles'
 
 import type { ICardParts, ICardProps } from './Card.types'
-
-import * as Parts from './parts'
 
 const Card: React.FC<ICardProps> & ICardParts = (props) => {
   const { children, styledCss, ...restArticleProps } = props

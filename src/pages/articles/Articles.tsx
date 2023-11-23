@@ -3,6 +3,7 @@ import React from 'react'
 import { useLoadInfinityScrollArticles } from 'lib/hooks'
 
 import { ArticlesList } from './parts'
+
 import { StyledArticles, StyledTitle } from './Articles.styles'
 
 const Articles: React.FC = () => {

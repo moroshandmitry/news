@@ -22,6 +22,12 @@ npm i
 yarn start
 ```
 
+`To sort imports and fix prettier and eslint`
+
+```
+yarn lint:fix
+```
+
 `or`
 
 ```
